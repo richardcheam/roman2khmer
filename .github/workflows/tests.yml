@@ -48,6 +48,7 @@ jobs:
         run: |
           python -m venv /tmp/env && /tmp/env/bin/pip install dist/*.whl
           cd /tmp && /tmp/env/bin/python -c "import roman2khmer, sys; print(roman2khmer.__version__)"
-          /tmp/env/bin/roman2khmer convert --model /nonexistent x; test $? -eq 2
+          code=0; /tmp/env/bin/roman2khmer convert --model /nonexistent x || code=$?
+          test "$code" -eq 2
       - name: rebuild from the sdist
         run: mkdir /tmp/sd && tar -xzf dist/*.tar.gz -C /tmp/sd && python -m build --wheel /tmp/sd/*/
