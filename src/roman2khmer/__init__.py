@@ -1,7 +1,8 @@
 """roman2khmer: romanised Khmer (Khmer typed in Latin letters) → Khmer script.
 
     >>> from roman2khmer import Converter                       # doctest: +SKIP
-    >>> c = Converter.from_dir("path/to/model")                 # doctest: +SKIP
+    >>> c = Converter.from_pretrained()                         # doctest: +SKIP  (pip install "roman2khmer[hub]")
+    >>> c = Converter.from_dir("path/to/model")                 # doctest: +SKIP  (files already on disk)
     >>> c.convert("bong mok nham bay nov")                      # doctest: +SKIP
     'បងមកញ៉ាំបាយនៅ'
     >>> c.convert("ថ្ងៃនេះ Sokha mok pteah")                      # doctest: +SKIP
@@ -23,7 +24,11 @@ from pathlib import Path
 from . import context, model
 
 __all__ = ["Converter", "context", "model"]
-__version__ = "0.1.0"
+try:
+    from importlib.metadata import PackageNotFoundError, version as _version
+    __version__ = _version("roman2khmer")
+except PackageNotFoundError:          # running from a source checkout without installing
+    __version__ = "0+unknown"
 
 WEIGHTS = "translit.npz"
 WORD_PAIRS = "khmer_bigram.npz"
@@ -72,6 +77,29 @@ class Converter:
         p = Path(path)
         rev = model.ReverseScorer(p / REVERSE) if (p / REVERSE).exists() else None
         return cls(model.load(p / WEIGHTS), context.load_lm(p / WORD_PAIRS), reverse=rev, **settings)
+
+    @classmethod
+    def from_pretrained(cls, cache_dir: str | Path | None = None, local_files_only: bool = False,
+                        **settings) -> "Converter":
+        """Download the released model files (pinned commit, sha256-checked) on first use, then load them.
+
+        Needs `pip install "roman2khmer[hub]"`. Later calls read the local cache; `local_files_only=True` never
+        touches the network.
+
+        Args:
+            cache_dir: Hugging Face cache folder (default: the user's standard cache).
+            local_files_only: Use only files already downloaded.
+            **settings: Overrides for `alpha`, `beta`, `beam`, `gamma`.
+
+        Returns:
+            A ready `Converter`.
+
+        Raises:
+            ImportError: huggingface_hub is not installed.
+            hub.IntegrityError: A downloaded file has an unexpected sha256.
+        """
+        from . import hub
+        return cls.from_dir(hub.download(cache_dir=cache_dir, local_files_only=local_files_only), **settings)
 
     def convert(self, text: str, sep: str = "") -> str:
         """Write every Latin word of `text` in Khmer, choosing spellings with the neighbouring words in mind.

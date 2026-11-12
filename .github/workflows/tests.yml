@@ -1,0 +1,53 @@
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+
+jobs:
+  unit:                                   # fast, no model download
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1          # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0      # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[serve]" httpx
+      - run: python -m unittest discover -s tests
+
+  model:                                  # the real model, from the pinned release (cached between runs)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1          # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0      # v7.1.0
+        with:
+          python-version: "3.12"
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9             # v6.1.0
+        with:
+          path: ~/.cache/huggingface
+          key: hf-${{ hashFiles('src/roman2khmer/hub.py') }}
+      - run: pip install -e ".[serve]" httpx
+      - run: echo "ROMAN2KHMER_MODEL_DIR=$(roman2khmer download)" >> "$GITHUB_ENV"
+      - run: python -m unittest discover -s tests
+
+  package:                                # build, check, and test the built wheel outside the checkout
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1          # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0      # v7.1.0
+        with:
+          python-version: "3.12"
+      - run: pip install build twine
+      - run: python -m build && twine check --strict dist/*
+      - name: install the wheel in a clean environment
+        run: |
+          python -m venv /tmp/env && /tmp/env/bin/pip install dist/*.whl
+          cd /tmp && /tmp/env/bin/python -c "import roman2khmer, sys; print(roman2khmer.__version__)"
+          /tmp/env/bin/roman2khmer convert --model /nonexistent x; test $? -eq 2
+      - name: rebuild from the sdist
+        run: mkdir /tmp/sd && tar -xzf dist/*.tar.gz -C /tmp/sd && python -m build --wheel /tmp/sd/*/

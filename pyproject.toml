@@ -1,16 +1,36 @@
 [build-system]
-requires = ["setuptools>=77"]
+requires = ["setuptools>=77.0.3"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "roman2khmer"
-version = "0.1.0"
-description = "Romanised Khmer (Khmer typed in Latin letters) to Khmer script: a small character model plus a sentence step"
+version = "0.2.0"
+description = "Romanised Khmer (Khmer typed in Latin letters, as in chat) to Khmer script, on the CPU"
 readme = "README.md"
 requires-python = ">=3.10"
-license = "MIT"
+license = "MIT"                               # the code; the model files on Hugging Face are CC BY-SA 4.0
 license-files = ["LICENSE"]
+authors = [{ name = "Richard Cheam" }]
+keywords = ["khmer", "transliteration", "romanization", "cambodia", "nlp"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Linguistic",
+    "Development Status :: 4 - Beta",
+]
 dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+hub = ["huggingface_hub>=0.24"]                                  # Converter.from_pretrained, `roman2khmer download`
+serve = ["huggingface_hub>=0.24", "fastapi>=0.110", "uvicorn>=0.29"]   # `roman2khmer serve`
+
+[project.scripts]
+roman2khmer = "roman2khmer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/richardcheam/roman2khmer"
+Models = "https://huggingface.co/ric912/roman2khmer"
+Issues = "https://github.com/richardcheam/roman2khmer/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

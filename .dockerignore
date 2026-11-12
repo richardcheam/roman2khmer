@@ -1,0 +1,8 @@
+.git
+.venv
+build
+dist
+runs
+training-data
+report
+**/__pycache__

@@ -27,20 +27,46 @@ Technical report: [`report/roman2khmer-technical-report.pdf`](report/roman2khmer
    context.
 
 ## Use
+**Python**
 ```bash
-pip install git+https://github.com/richardcheam/roman2khmer       # NumPy is the only dependency
-hf download ric912/roman2khmer --local-dir roman2khmer-model      # the model files (about 30 MB)
+pip install "roman2khmer[hub]"          # NumPy + huggingface_hub; the model (about 27 MB) downloads on first use
 ```
 ```python
 from roman2khmer import Converter
 
-c = Converter.from_dir("roman2khmer-model")   # translit.npz, reverse.npz, khmer_bigram.npz
-c.convert("pa ban mok vinh hz")           # 'ប៉ាបានមកវិញហើយ'
-c.candidates("mok", 3)                    # the word model's best spellings with log-probabilities
+c = Converter.from_pretrained()          # pinned model release, sha256-checked, cached after the first call
+c.convert("pa ban mok vinh hz")          # 'ប៉ាបានមកវិញហើយ'
+c.convert("ថ្ងៃនេះ Sokha mok pteah")       # Khmer already in the text is kept and used as context
+c.candidates("mok", 3)                   # the word model's best spellings with log-probabilities
 ```
-Runs on the CPU (no GPU). Loading takes under a second and about 300 MB of RAM. A short chat message whose words are
-all new takes about 0.4 second without the recheck and 0.9 second with it (laptop CPU, mean over 60 messages).
-Words seen before are remembered, so repeated words cost almost nothing. `Converter.from_dir(path, gamma=0)` turns the recheck off.
+Without `[hub]`, download the files yourself (`hf download ric912/roman2khmer --local-dir model`) and use
+`Converter.from_dir("model")`. Load the converter once and reuse it: loading takes under a second and about 300 MB of
+RAM. A short message whose words are all new takes about 0.9 second on a laptop CPU (0.4 second with
+`gamma=0`, which turns the recheck off); words seen before are cached.
+
+**Command line**
+```bash
+roman2khmer convert "bong mok nham bay nov"                 # បងមកញ៉ាំបាយនៅ
+printf 'knhom tov sala rean\npa ban mok vinh hz\n' | roman2khmer convert   # one message per line
+roman2khmer convert --offline "bong mok"                    # only the local cache, no network
+```
+
+**HTTP API**
+```bash
+pip install "roman2khmer[serve]"
+roman2khmer serve --port 8000                               # this machine only, by default
+curl -s localhost:8000/convert -H 'Content-Type: application/json' -d '{"text": "bong mok nham bay nov"}'
+# {"khmer": "បងមកញ៉ាំបាយនៅ"}
+```
+One model in memory; messages are converted one at a time, so a busy server answers 503 ("try again") rather than
+queuing without limit. Limits: `--max-chars` (default 1000), `--max-waiting` (8), `--timeout` (30 s). There is no
+authentication: put a reverse proxy with TLS, authentication and rate limits in front before exposing it.
+
+**Docker**
+```bash
+docker build -t roman2khmer .            # fetches the pinned model files at build time
+docker run --rm -p 8000:8000 roman2khmer
+```
 
 ## How well it works
 There is no public multi-writer benchmark of real romanised chat yet, so these figures come from the sets the
