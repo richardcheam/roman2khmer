@@ -1,0 +1,102 @@
+{
+ "description": "roman2khmer v0.1 training data: the exact files the released word model and recheck model were trained on",
+ "vocab": {
+  "src": "abcdefghijklmnopqrstuvwxyz",
+  "tgt": "កខគឃងចឆជឈញដឋឌឍណតថទធនបផពភមយរលវឞសហឡអឣឤឥឦឧឩឪឫឬឭឮឯឰឱឲឳាិីឹឺុូួើឿៀេែៃោៅំះៈ៉៊់៌៍៎៏័្។ៗ៝",
+  "aux": [
+   ".",
+   "a",
+   "aa",
+   "ae",
+   "ao",
+   "aə",
+   "c",
+   "ch",
+   "e",
+   "ea",
+   "ee",
+   "f",
+   "g",
+   "h",
+   "i",
+   "ie",
+   "ii",
+   "iə",
+   "j",
+   "k",
+   "kh",
+   "l",
+   "m",
+   "n",
+   "o",
+   "oa",
+   "oo",
+   "p",
+   "ph",
+   "r",
+   "s",
+   "t",
+   "th",
+   "u",
+   "uu",
+   "uə",
+   "w",
+   "z",
+   "ŋ",
+   "ɑ",
+   "ɑɑ",
+   "ɓ",
+   "ɔ",
+   "ɔɔ",
+   "ɗ",
+   "ə",
+   "əə",
+   "ɛ",
+   "ɛə",
+   "ɛɛ",
+   "ɨ",
+   "ɨə",
+   "ɨɨ",
+   "ɲ",
+   "ʔ"
+  ]
+ },
+ "spell_train": {
+  "rows": 109088,
+  "rows_by_source": {
+   "llm_bulk": 48057,
+   "mined": 34345,
+   "chhunneng": 24016,
+   "list_train": 1480,
+   "owner_checked_llm": 580,
+   "owner_typing": 408,
+   "owner_examples": 143,
+   "chhunneng_val_common": 59
+  },
+  "repeated_4x": [
+   "list_train",
+   "owner_examples",
+   "owner_typing",
+   "owner_checked_llm"
+  ],
+  "pairs_per_epoch": 116921
+ },
+ "aux_train": {
+  "rows": 6772
+ },
+ "validation_rows": {
+  "romanised": 1576,
+  "names": 320,
+  "english": 179
+ },
+ "held_out": "Before these files were written, every row whose Khmer word or Latin spelling belongs to an evaluation set (the author's typed test words, the public romanised and names test sets, the English test lists and the reserve) was removed, and so was every validation pair.",
+ "sha256": {
+  "spell_train.tsv": "1657c7efeb5224f7d44fc778e27258f0ea04522bf2cc68eeaf6da3ceb2c1cdb0",
+  "aux_train.tsv": "cb457db54474432c178f244384cef50869805e42cb62bd4651bbd03d8774248c",
+  "val_romanised.tsv": "4b1dc35514a9907eaf0cafbba93f09277e1e7e88c60dc5a4a220896b17b4d934",
+  "val_names.tsv": "1b89f224f55418fe2951ce95a184ea168f3330fc3458e6b3635bb97b56e9f2cc",
+  "val_english.tsv": "da869cdd8475129f777525a0b7bcf0c7bc34dabf90cfdc2d7dab8b9553d5b5fe",
+  "reverse_pool.tsv": "1739c776d41e0d1d9e783ecab529f4c7b71baa31faf164e8c14fd511019ad326",
+  "reverse_heldout.tsv": "8c2aed7ff36e1ed013f586564be8fd38681f0aaac53c24bb94c781a8789da885"
+ }
+}

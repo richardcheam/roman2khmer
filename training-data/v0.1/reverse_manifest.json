@@ -1,0 +1,12 @@
+{
+ "pool_words": 33078,
+ "pool_pairs": 70763,
+ "spellings_per_word_mean": 2.14,
+ "heldout_words": 662,
+ "dropped_rows": {
+  "mined": 34345,
+  "length": 0
+ },
+ "pool_sha256": "1739c776d41e0d1d9e783ecab529f4c7b71baa31faf164e8c14fd511019ad326",
+ "heldout_sha256": "8c2aed7ff36e1ed013f586564be8fd38681f0aaac53c24bb94c781a8789da885"
+}

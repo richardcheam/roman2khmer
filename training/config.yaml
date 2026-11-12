@@ -1,0 +1,43 @@
+# Training settings of roman2khmer v0.1 (the released models). Changing them gives a different model.
+
+data: training-data/v0.1           # relative to the repository root
+
+word_model:                        # Latin word -> Khmer candidates (train_word_model.py)
+  max_in: 48                       # longest Latin input, in characters
+  side_task_max: 48                # longest pronunciation (phone tokens) of the side task
+  repeat: 4                        # rows from these sources appear 4 times per epoch:
+  repeated_sources: [list_train, owner_examples, owner_typing, owner_checked_llm]
+  model: {d: 192, layers: 3, heads: 4, ff: 512, dropout: 0.1}
+  epochs: 40
+  batch: 128
+  lr: 0.001                        # AdamW; linear warm-up, then cosine decay to 0 at the last step
+  weight_decay: 0.01
+  warmup: 500
+  label_smoothing: 0.1
+  grad_clip: 1.0
+  side_task: {weight: 0.5, every: 8, batch: 128}   # one pronunciation batch on every 8th step, loss weight 0.5
+  released_seed: 2
+
+reverse_model:                     # Khmer word -> how likely a Latin spelling is (train_reverse_model.py)
+  max_src: 48                      # direction tag + Khmer characters
+  max_tgt: 40                      # Latin letters
+  model: {d: 192, layers: 3, heads: 4, ff: 512, dropout: 0.1}
+  steps: 31265
+  batch: 128
+  lr: 0.001
+  weight_decay: 0.01
+  warmup: 500
+  label_smoothing: 0.1
+  grad_clip: 1.0
+  eval_every: 782                  # and at the last step; keeps the lowest held-out negative log-likelihood
+  released_seed: 0
+
+word_pairs:                        # Khmer word-bigram counts (build_bigram.py)
+  docs: 200000                     # first documents of FineWeb-2 khm_Khmr train/000_00000.parquet
+  min_pair: 2                      # pairs seen fewer times are dropped
+
+decoding:                          # stored in the model folder's manifest; the package's defaults
+  alpha: 1.0
+  beta: 8.0
+  beam: 8
+  gamma: 1.0
