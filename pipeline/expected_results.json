@@ -1,0 +1,25 @@
+{
+ "_note": "the released system's results (model files of v0.1.0, recheck weight 1); values marked in _source",
+ "messages_b_cer": 8.947261800256602,
+ "messages_b_exact_pct": 36.888888888888886,
+ "messages_b_test_cer": 8.932820794435292,
+ "fresh_words_macro_pct": 58.15315315315316,
+ "_source": {
+  "messages_b_cer": "release record",
+  "messages_b_exact_pct": "release record",
+  "messages_b_test_cer": "release record",
+  "fresh_words_macro_pct": "release record",
+  "fresh_words_spellings_pct": "pipeline/evaluate.py on the released model (2026-11-13)",
+  "fresh_variants_pct": "pipeline/evaluate.py on the released model (2026-11-13)",
+  "messages_a_fit_cer": "pipeline/evaluate.py on the released model (2026-11-13)",
+  "messages_a_check_cer": "pipeline/evaluate.py on the released model (2026-11-13)",
+  "public_romanised_unseen_pct": "pipeline/evaluate.py on the released model (2026-11-13)",
+  "public_names_unseen_pct": "pipeline/evaluate.py on the released model (2026-11-13)"
+ },
+ "fresh_words_spellings_pct": 60.33519553072626,
+ "fresh_variants_pct": 52.0,
+ "messages_a_fit_cer": 1.9494728466282076,
+ "messages_a_check_cer": 3.4255185417976115,
+ "public_romanised_unseen_pct": 45.59322033898305,
+ "public_names_unseen_pct": 21.05263157894737
+}

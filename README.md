@@ -82,10 +82,12 @@ author could build (details, intervals and caveats in the report):
 LLM-written messages. Remaining errors include context choices (ព្រុស "bark" vs the more common ព្រោះ "because"),
 abbreviations that stand for whole words or names (*fb*, *BKK*), and occasional Khmer strings that are not words.
 
-## Train it yourself
-[`TRAINING.md`](TRAINING.md) retrains all three parts from scratch with the code in [`training/`](training/) and
-the exact training data of v0.1 in [`training-data/v0.1/`](training-data/v0.1/README.md): about two hours on a
-laptop GPU, or longer on a CPU.
+## Reproduce it
+[`TRAINING.md`](TRAINING.md) runs the whole pipeline: prepare the training data from raw inputs per source
+([`training-data/raw/`](training-data/raw/README.md); the result is checked byte for byte against
+[`training-data/v0.1/`](training-data/v0.1/README.md)), train the word model and the recheck model, build the
+word-pair model, then evaluate on every published test set ([`test-sets/`](test-sets/README.md)) next to the released
+model's numbers. `pipeline/run_all.sh` does it in one command, about two hours on a laptop GPU.
 
 ## Repository
 | Path | What it is |
@@ -93,7 +95,9 @@ laptop GPU, or longer on a CPU.
 | `src/roman2khmer/` | the package: `Converter` (`__init__.py`), the sentence step and word-pair model (`context.py`), the character Transformer in NumPy (`model.py`) |
 | `tests/` | package tests (`python -m unittest discover -s tests`; set `ROMAN2KHMER_MODEL_DIR` for the model tests) |
 | `training/` | training code and settings (PyTorch), with its own tests |
-| `training-data/v0.1/` | the training data of the released models, with sources and notices |
+| `training-data/` | raw inputs per source (`raw/`) and the prepared training files of the release (`v0.1/`), with sources and notices |
+| `test-sets/` | every test set behind the published numbers, and what each was used for |
+| `pipeline/` | data preparation, evaluation and the run-everything script |
 | `report/` | the technical report (PDF) |
 
 ## Licence

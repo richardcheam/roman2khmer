@@ -1,0 +1,226 @@
+word_id	khmer	rule	variant
+t001	ចោល	j_to_ch	choal
+t002	ស្រដៀង	o_to_or	srordeang
+t002	ស្រដៀង	ea_to_ia	sdiang
+t002	ស្រដៀង	ea_to_ia	srodiang
+t003	យត	o_to_or	yort
+t004	ជាងគេ	j_to_ch	cheang ke
+t004	ជាងគេ	k_to_g	jeang ge
+t004	ជាងគេ	ea_to_ia	jiang ke
+t005	សរសើរ	join_words	sorser
+t005	សរសើរ	or_to_o	so ser
+t006	ចៃដន្យ	o_to_or	jaidorn
+t006	ចៃដន្យ	j_to_ch	chaidon
+t008	សាងសង់	o_to_or	sarng sorng
+t008	សាងសង់	join_words	sarngsong
+t009	សៀម	ia_to_ea	seam
+t011	សាលារាជធានី	join_words	salareachtheany
+t011	សាលារាជធានី	ea_to_ia	sala riach thiany
+t012	ពីរបី	join_words	pibey
+t013	ទទេ	join_words	torte
+t013	ទទេ	or_to_o	to te
+t015	រថ	u_to_ou	rout
+t017	សមាសភាព	ea_to_ia	samasaphiab
+t018	ដូណាល់	o_to_or	dornald
+t019	ប៉ុល	o_to_or	borl
+t021	កាន	k_to_g	garn
+t022	បង្ហូរ	or_to_o	bongho
+t023	គ្រឿងផ្សំ	o_to_or	krerng phsorm
+t023	គ្រឿងផ្សំ	join_words	krerngphsom
+t023	គ្រឿងផ្សំ	k_to_g	grerng phsom
+t024	ដឹកនាំ	join_words	derknoam
+t025	អញ្ជើញ	join_words	aenhjernh
+t025	អញ្ជើញ	j_to_ch	aenh chernh
+t026	ស្រូវ	o_to_or	srorv
+t027	កម្ពុជា	k_to_g	gampuchea
+t027	កម្ពុជា	u_to_ou	kampouchea
+t027	កម្ពុជា	ea_to_ia	kampuchia
+t028	ព្រះពុទ្ធ	u_to_ou	preah pout
+t028	ព្រះពុទ្ធ	ea_to_ia	priah put
+t028	ព្រះពុទ្ធ	join_words	preahput
+t029	សង្គមស៊ីវិល	o_to_or	sorngkum civil
+t029	សង្គមស៊ីវិល	u_to_ou	songkoum civil
+t029	សង្គមស៊ីវិល	join_words	songkumcivil
+t030	ទូទាំង	u_to_ou	tou tang
+t030	ទូទាំង	join_words	tutang
+t031	ពុំទាន់	u_to_ou	poum ton
+t031	ពុំទាន់	o_to_or	pum torn
+t031	ពុំទាន់	join_words	pumton
+t032	បន្លំ	o_to_or	bornlorm
+t033	រូបិយប័ណ្ណ	u_to_ou	roubeyabarn
+t034	ឧទាហរណ៍	or_to_o	oukteaho
+t034	ឧទាហរណ៍	ou_to_u	ukteahor
+t034	ឧទាហរណ៍	ea_to_ia	ouktiahor
+t036	សាលក្រម	or_to_o	salkrom
+t037	ដកហូត	or_to_o	dok hot
+t037	ដកហូត	join_words	dorkhot
+t037	ដកហូត	o_to_or	dork hort
+t039	អង្គរ	or_to_o	angko
+t040	ពួកគាត់	join_words	pukkoit
+t040	ពួកគាត់	k_to_g	puk goit
+t040	ពួកគាត់	u_to_ou	pouk koit
+t041	គួច	u_to_ou	kouoy
+t041	គួច	k_to_g	guoy
+t042	ថ្ម	or_to_o	tmo
+t044	ស្វាយរៀង	join_words	svayreang
+t044	ស្វាយរៀង	ea_to_ia	svay riang
+t045	វក	o_to_or	work
+t046	ពិគ្រោះយោបល់	or_to_o	pi krous yo bol
+t046	ពិគ្រោះយោបល់	k_to_g	pi grous yo borl
+t046	ពិគ្រោះយោបល់	join_words	pikrousyoborl
+t048	ល្បីល្បាញ	join_words	lbeylbarnh
+t050	បញ្ចុះតម្លៃ	o_to_or	banhjors dormlai
+t050	បញ្ចុះតម្លៃ	join_words	banhjosdomlai
+t052	ទេសចរណ៍	or_to_o	tesjo
+t053	រាប់ពាន់	join_words	rorbpoin
+t053	រាប់ពាន់	or_to_o	rob poin
+t056	ខូច	k_to_g	ghoch
+t056	ខូច	o_to_or	khorch
+t057	ទ្រាំ	o_to_or	trorm
+t060	បរ	or_to_o	bo
+t061	ខ្សែក្រវាត់	join_words	ksaekrovat
+t061	ខ្សែក្រវាត់	o_to_or	ksae krorvat
+t061	ខ្សែក្រវាត់	k_to_g	gsae grovat
+t062	ហាត់ប្រាណ	join_words	hatbran
+t063	ឧត្តម	o_to_or	oudorm
+t063	ឧត្តម	ou_to_u	udom
+t064	បុក	o_to_or	bork
+t065	បាតុកម្ម	o_to_or	patorkam
+t066	ត្រូវបាន	o_to_or	trorv ban
+t066	ត្រូវបាន	join_words	trovban
+t067	វិទ្យាសាស្ត្រ	ea_to_ia	vichiasas
+t069	រូបនេះ	join_words	rubnis
+t069	រូបនេះ	u_to_ou	roub nis
+t070	សាធារណរដ្ឋ	ea_to_ia	sathiaranakroth
+t070	សាធារណរដ្ឋ	o_to_or	sathearanakrorth
+t071	គ្រោងទុក	join_words	kroangtuk
+t071	គ្រោងទុក	u_to_ou	kroang touk
+t071	គ្រោងទុក	k_to_g	groang tuk
+t072	ជំរំ	o_to_or	jormrorm
+t072	ជំរំ	j_to_ch	chomrom
+t075	ហាន	ea_to_ia	hian
+t076	ខ្លះ	k_to_g	glas
+t077	ទល់នឹង	u_to_ou	toul neng
+t077	ទល់នឹង	join_words	tulneng
+t080	បទបង្ហាញ	o_to_or	bort borngharnh
+t080	បទបង្ហាញ	join_words	botbongharnh
+t081	ឱកាស	or_to_o	okas
+t082	សរីរាង្គ	ea_to_ia	sareyriang
+t083	មើលឃើញ	join_words	merlkhernh
+t083	មើលឃើញ	k_to_g	merl ghernh
+t086	សារភាព	ea_to_ia	sarephiab
+t086	សារភាព	ea_to_ia	sarephiap
+t087	គ្រឿងញៀន	join_words	krerngnhean
+t087	គ្រឿងញៀន	k_to_g	grerng nhean
+t087	គ្រឿងញៀន	ea_to_ia	krerng nhian
+t088	ពុធ	u_to_ou	pout
+t089	ជាធរមាន	or_to_o	chea thomean
+t089	ជាធរមាន	ea_to_ia	chia thormian
+t089	ជាធរមាន	join_words	cheathoremean
+t090	ជ្រើសរើស	j_to_ch	chrer rers
+t090	ជ្រើសរើស	join_words	jrerrers
+t092	បៃតង	or_to_o	beytong
+t093	ឆ្លៀត	ch_to_j	jleang
+t093	ឆ្លៀត	ea_to_ia	chliang
+t094	ចំនួនប្រាំពីរ	ou_to_u	jumnun prarmpi
+t094	ចំនួនប្រាំពីរ	j_to_ch	chumnoun brarmpi
+t094	ចំនួនប្រាំពីរ	join_words	jumnounbrarmpi
+t095	ចូលឆ្នាំ	ch_to_j	jol jnam
+t095	ចូលឆ្នាំ	o_to_or	jorl chnam
+t095	ចូលឆ្នាំ	join_words	jolchnam
+t096	កាហ្វេ	k_to_g	gafe
+t097	ចំណី	o_to_or	jormney
+t097	ចំណី	j_to_ch	chomney
+t101	ដួង	ou_to_u	dung
+t102	ប្រាក់ដុល្លារ	join_words	prakdollar
+t102	ប្រាក់ដុល្លារ	o_to_or	prak dorllar
+t103	ចុច	ou_to_u	juch
+t103	ចុច	j_to_ch	chouch
+t104	ជំពូក	j_to_ch	chumpuk
+t104	ជំពូក	u_to_ou	joumpouk
+t105	ច្រើនតែ	j_to_ch	chrern tae
+t105	ច្រើនតែ	join_words	jrerntae
+t106	ប្រកបដោយ	or_to_o	pro kob doy
+t106	ប្រកបដោយ	join_words	prorkorbdoy
+t106	ប្រកបដោយ	k_to_g	pror gorb doy
+t107	រុះរើ	u_to_ou	rous rer
+t107	រុះរើ	join_words	rusrer
+t108	សុទ្ធ	o_to_or	sort
+t110	សន្លប់	o_to_or	sornlorb
+t110	សន្លប់	or_to_o	sonlob
+t110	សន្លប់	or_to_o	slob
+t111	ផ្ទះសំណាក់	o_to_or	ptaes sormnak
+t111	ផ្ទះសំណាក់	join_words	ptaessomnak
+t111	ផ្ទះសំណាក់	join_words	ptessomnak
+t113	ទីស្នាក់ការ	join_words	tisnakkar
+t113	ទីស្នាក់ការ	k_to_g	ti snak ga
+t113	ទីស្នាក់ការ	k_to_g	ti snak gar
+t114	ជាន់	or_to_o	jon
+t114	ជាន់	j_to_ch	chorn
+t115	កំ	o_to_or	korm
+t115	កំ	k_to_g	gom
+t116	ធន	u_to_ou	thoun
+t117	កែទម្រង់	u_to_ou	kae toumroung
+t117	កែទម្រង់	k_to_g	gae tumrung
+t117	កែទម្រង់	join_words	kaetumrung
+t118	ជម្រាប	u_to_ou	joumreab
+t118	ជម្រាប	j_to_ch	chumreab
+t118	ជម្រាប	ea_to_ia	jumriab
+t119	អ្នកជិតខាង	ch_to_j	nek jit kharng
+t119	អ្នកជិតខាង	join_words	nekjitkhang
+t119	អ្នកជិតខាង	k_to_g	nek chet ghang
+t120	ដែនដី	join_words	daendey
+t121	ទ្រទ្រង់	u_to_ou	tror troung
+t121	ទ្រទ្រង់	join_words	trortrung
+t121	ទ្រទ្រង់	or_to_o	tro trung
+t122	បានជា	ch_to_j	ban jea
+t122	បានជា	join_words	banchea
+t122	បានជា	ea_to_ia	ban chia
+t124	ដួល	ou_to_u	dul
+t125	ប្រតិបត្តិការ	or_to_o	bro te bat ka
+t125	ប្រតិបត្តិការ	k_to_g	bror te bat ga
+t125	ប្រតិបត្តិការ	join_words	brortebatka
+t127	តទៅទៀត	ea_to_ia	tor tov tiat
+t127	តទៅទៀត	join_words	tortovteat
+t127	តទៅទៀត	o_to_or	tor torv teat
+t128	ប្រតិកម្ម	or_to_o	bro te kam
+t128	ប្រតិកម្ម	k_to_g	bror te gam
+t128	ប្រតិកម្ម	join_words	brortekam
+t130	ប្រជា	join_words	brojea
+t130	ប្រជា	join_words	brorchea
+t130	ប្រជា	ea_to_ia	pro chia
+t132	រតនគិរី	o_to_or	rortanakiri
+t133	ស្ងៀម	ea_to_ia	sngiam
+t135	សារជាតិ	ea_to_ia	sarjiat
+t135	សារជាតិ	ea_to_ia	sarochiat
+t135	សារជាតិ	ea_to_ia	sarchiat
+t136	មើលថែ	join_words	merlthae
+t137	រហ	join_words	rorhor
+t137	រហ	or_to_o	ro ho
+t138	អ្នកឧកញ៉ា	join_words	nekoknha
+t138	អ្នកឧកញ៉ា	o_to_or	nek orknha
+t139	បន្ទោស	ou_to_u	bontus
+t139	បន្ទោស	o_to_or	borntous
+t140	ទ្រព្យសម្បត្តិ	o_to_or	trorb sormbat
+t140	ទ្រព្យសម្បត្តិ	join_words	trorbsombat
+t140	ទ្រព្យសម្បត្តិ	or_to_o	trob sombat
+t141	ធម្មជាតិ	o_to_or	thormcheat
+t141	ធម្មជាតិ	ea_to_ia	thomachiat
+t141	ធម្មជាតិ	ea_to_ia	thomajiat
+t143	ចក្រ	j_to_ch	chak
+t144	អាស្រូវ	o_to_or	ah srorv
+t144	អាស្រូវ	join_words	ahsrov
+t145	ទទួលខុសត្រូវ	k_to_g	tor tul ghos trov
+t145	ទទួលខុសត្រូវ	o_to_or	tor tul khors trorv
+t145	ទទួលខុសត្រូវ	join_words	tortulkhostrov
+t146	កាន់កាប់	k_to_g	garn gab
+t146	កាន់កាប់	join_words	karnkab
+t147	ក្រៃលែង	join_words	kraileng
+t147	ក្រៃលែង	k_to_g	grai leng
+t148	កែលម្អ	or_to_o	kae lum o
+t148	កែលម្អ	k_to_g	gae lum or
+t148	កែលម្អ	join_words	kaelumor
+t149	ពិន័យ	join_words	piney
+t149	ពិន័យ	join_words	pinei
+t150	ជោគជ័យ	join_words	choakchey
+t150	ជោគជ័យ	join_words	joakjey

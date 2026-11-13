@@ -127,13 +127,13 @@ def heldout_nll(model, held, index, allowed, dev, max_src, max_tgt) -> float:
 
 
 def train(seed: int, out: Path, device: str = "cpu", resume: bool = False, steps: int | None = None,
-          stop_after: int | None = None, cfg: dict | None = None, data=None) -> dict:
+          stop_after: int | None = None, cfg: dict | None = None, data=None, data_dir: str | None = None) -> dict:
     """Train the recheck model; see the module docstring. `steps`, `stop_after`, `data` are for tests and pilots."""
     cfg = cfg or yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
     c, m = cfg["reverse_model"], cfg["reverse_model"]["model"]
     steps = steps or c["steps"]
     torch.set_num_threads(min(12, os.cpu_count() or 1))
-    V, pool, held = data or load_data(ROOT / cfg["data"])
+    V, pool, held = data or load_data(Path(data_dir) if data_dir else ROOT / cfg["data"])
     index = {ch: i + 3 for i, ch in enumerate(V)}
     dev = torch.device(device)
     torch.manual_seed(seed)
@@ -202,9 +202,10 @@ def main() -> None:
     ap.add_argument("--out", type=Path, required=True, help="run folder")
     ap.add_argument("--device", default="cpu", help="cpu or cuda")
     ap.add_argument("--resume", action="store_true", help="continue from <out>/last.pt")
+    ap.add_argument("--data", default=None, help="training-data folder (default: training-data/v0.1)")
     ap.add_argument("--stop-after", type=int, default=None, help="stop after this many steps (quick checks)")
     a = ap.parse_args()
-    r = train(a.seed, a.out, a.device, a.resume, stop_after=a.stop_after)
+    r = train(a.seed, a.out, a.device, a.resume, stop_after=a.stop_after, data_dir=a.data)
     print(json.dumps({k: v for k, v in r.items() if k != "log"}))
 
 

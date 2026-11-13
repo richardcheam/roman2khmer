@@ -19,6 +19,8 @@ jobs:
           python-version: ${{ matrix.python }}
       - run: pip install -e ".[serve]" httpx
       - run: python -m unittest discover -s tests
+      - name: the raw inputs rebuild the released training data exactly
+        run: python pipeline/prepare.py --out /tmp/data --check
 
   model:                                  # the real model, from the pinned release (cached between runs)
     runs-on: ubuntu-latest
